@@ -17,7 +17,7 @@ function Loading() {
         src="https://lottie.host/8252862f-c058-4b6d-bbbe-d068306aa1aa/ICwyTf6EtH.json"
         background="transparent"
         speed="1"
-        style={{ width: "30%", height: "30%" }}
+        className="w-1/2 h-1/2 sm:w-1/3 sm:h-1/3 md:w-1/4 md:h-1/4"
         loop={true}
         autoplay
       ></dotlottie-player>
