@@ -9,7 +9,8 @@ from bson.objectid import ObjectId
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+# Configure CORS to allow requests from your frontend URL
+CORS(app, resources={r"/contact": {"origins": "https://makemyweb.netlify.app"}})
 
 # Connect to MongoDB
 MONGO_URI = os.getenv('MONGO_URI')
@@ -41,4 +42,4 @@ def contact():
 if __name__ == '__main__':
     env = os.getenv('FLASK_ENV', 'development')  # Default to 'development'
     debug = True if env == 'development' else False
-    app.run(port=5000, debug=debug)
+    app.run(host='0.0.0.0', port=5000, debug=debug)
