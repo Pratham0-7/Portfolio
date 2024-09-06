@@ -21,7 +21,10 @@ export default function ContactMe() {
       setShowThankYou(true); // Show the ThankYou component
 
       // Hide the ThankYou component after the animation has played
-      setTimeout(() => setShowThankYou(false), 3000); // Adjust timeout to match animation duration
+      setTimeout(() => {
+        setShowThankYou(false);
+        window.location.reload(); // Refresh the page
+      }, 3000); // Adjust timeout to match animation duration
     } catch (error) {
       console.error('There was an error!', error);
       // Handle error (e.g., show an error message)
