@@ -7,12 +7,12 @@ export default function ContactMe() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [showThankYou, setShowThankYou] = useState(false); 
-  
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/contact', {
+      const response = await axios.post(`${apiUrl}/contact`, {
         name,
         email,
         message,
