@@ -6,13 +6,13 @@ export default function ContactMe() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [showThankYou, setShowThankYou] = useState(false); 
-  
+  const [showThankYou, setShowThankYou] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/contact', {
+      const response = await axios.post('https://portfolio-bu1i.onrender.com/contact', {
         name,
         email,
         message,
