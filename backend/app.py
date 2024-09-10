@@ -22,6 +22,15 @@ def serialize_document(doc):
         doc['_id'] = str(doc['_id'])
     return doc
 
+@app.route('/test-db')
+def test_db():
+    try:
+        db.test_collection.insert_one({"test": "value"})
+        return "Connection Successful"
+    except Exception as e:
+        return str(e)
+
+
 @app.route('/contact', methods=['POST'])
 def contact():
     try:
