@@ -11,23 +11,28 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Dynamically load the script for dotLottie player
     const script = document.createElement('script');
     script.src = "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
     script.type = "module";
     document.body.appendChild(script);
 
-    // Wait for all animations to load or for a timeout
+    // Set a timer to stop loading
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // Adjust time according to your animations
+    }, 5000); // Adjust the timeout based on the animation duration
 
-    return () => clearTimeout(timer);
+    // Clean up: remove the script and clear the timer when component unmounts
+    return () => {
+      document.body.removeChild(script);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
-    <div className="App bg-gray-900 h-full text-white">
+    <div className="App bg-gray-900 min-h-screen text-white">
       {isLoading ? (
-        <Loading />
+        <Loading /> // Shows loading screen while animations load
       ) : (
         <>
           <HelloThere />
