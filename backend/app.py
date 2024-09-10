@@ -8,7 +8,7 @@ from bson.objectid import ObjectId
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, origins=["https://makemyweb.netlify.app/"])
+CORS(app, origins=["https://makemyweb.netlify.app"])
 
 MONGO_URI = os.getenv('MONGO_URI')
 client = MongoClient(MONGO_URI)
