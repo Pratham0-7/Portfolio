@@ -58,4 +58,5 @@ def contact():
         return jsonify({"message": "GET method not allowed for this endpoint."}), 405
 
 if __name__ == '__main__':
+    
     app.run(port=5000, debug=True)
